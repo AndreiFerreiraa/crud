@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
 import model.Gerente;
 
 public class GerenteDAO {
-    public Gerente buscarGerentePorEmail(String email) throws ClassNotFoundException{
+    public Gerente buscarGerentePorEmail(String email) {
         String sql = "SELECT * FROM gerente WHERE email = ?";
         try (PreparedStatement stmt = Conexao.getConexao().prepareStatement(sql)){
             stmt.setString(1,email);
             ResultSet result = stmt.executeQuery();
-            
+             
             if(result.next()){
                 UUID id = result.getObject ("id", UUID.class);
                 String nome = result.getString("nome");

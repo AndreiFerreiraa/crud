@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class Conexao {
     private static Connection conexao;
     
-    public static Connection getConexao() throws ClassNotFoundException{
+    public static Connection getConexao(){
         if(conexao == null){
             try{
                 Class.forName("org.postgresql.Driver");
@@ -19,6 +19,9 @@ public class Conexao {
             }catch (SQLException e){
                 System.out.println("Erro ao estabelecer a conexão com o banco de dados.");
                 e.printStackTrace();
+            }catch (ClassNotFoundException ex) {
+                System.out.println("Erro ao estabelecer a conexão com o banco de dados.");
+                ex.printStackTrace();
             }
         }
         return conexao;

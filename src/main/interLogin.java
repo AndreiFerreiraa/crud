@@ -74,7 +74,7 @@ public class interLogin extends javax.swing.JFrame {
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
         String usuario = this.escEmail.getText();
         String password = new String(this.senhaLogin.getPassword());
-        
+         
         if(!usuario.isEmpty() || !password.isEmpty()){
             //IR NO BANCO E BUSCAR USUARIO POR EMAIL
             Gerente gerente = new GerenteDAO().buscarGerentePorEmail(usuario);
